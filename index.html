@@ -1,51 +1,208 @@
 <html lang="en">
     <head>
         <title>Nnola Oyeka's WebPage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+        <style>
+            :root {
+                --primary-color: #2a6f97;
+                --primary-dark-color: #1d4e6b;
+                --text-color: #333333;
+                --background-color: #f5f5f5;
+                --card-background-color: #ffffff;
+                --accent-color: #61a5c2;
+                --muted-color: #666666;
+            }
+            
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                line-height: 1.6;
+            }
+
+            header {
+                background: linear-gradient(135deg, var(--primary-color), var(--primary-dark-color));
+                color: #ffffff;
+                text-align: center;
+                padding: 40px 16px;
+
+            }
+
+            header h1 {
+                margin: 0 0 8px;
+                font-size: 2.5em;
+            }
+
+
+            /* Main content styles */
+            main {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 20px 16px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                background-color: var(--card);
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            .card h2 {
+                margin-top: 0;
+                color: var(--primary);
+                border-bottom: 3px solid var(--accent);
+                padding-bottom: 6px;
+                display: inline-block;
+            }
+
+            /* About me details */
+            .details p {
+                margin: 6px 0;
+            }
+
+            .details b {
+                color: var(--primary-dark);
+            }
+
+            /*Hobbies section styles */
+            .tags {
+                list-style: none;
+                padding: 0;
+                margin: 8px 0 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+    
+            .tags li {
+                background-color: #e3f0f7;
+                color: var(--primary-dark);
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+            }
+    
+            /*Image styles */
+            figure {
+                margin: 10px 0 0;
+            }
+    
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+    
+            figcaption {
+                font-size: 0.85rem;
+                color: var(--muted);
+                margin-top: 6px;
+            }
+
+            /*Social links styles */
+            .button {
+                display: inline-block;
+                background-color: var(--primary-color);
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 20px;
+                border-radius: 6px;
+                font-weight: bold;
+                transition: background-color 0.2s;
+            }
+
+            .button:hover,
+            .button:focus {
+                background-color: var(--primary-dark-color);
+            }
+
+            /* Footer styles */
+            footer {
+                text-align: center;
+                padding: 20px;
+                color: var(--muted);
+                font-size: 0.85rem;
+            }
+
+            /* Desktop styles */
+            @media (min-width: 768px) {
+                header {
+                    padding: 60px 20px;
+                }
+    
+                header h1 {
+                    font-size: 2.5rem;
+                }
+    
+                main {
+                    grid-template-columns: 1fr 2fr;   /* About Me narrow, project wide */
+                    padding: 30px 20px;
+                }
+    
+                .contact {
+                    grid-column: 1 / -1;              /* contact card spans full width */
+                    text-align: center;
+                }
+            }
+            
+        </style>
     </head>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f5f5f5;
-        }
-
-        h1 {
-            color: #2a6f97;
-        }
-
-        h2 {
-            color: #333333;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #2a6f97;
-        }
-
-        img {
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        
-    </style>
 
     <body>
 
-        <h1>Welcome to My Personal Webpage</h1>
+        <header>
+            <h1>Welcome to My Personal Webpage</h1>
+            <p>Structural Engineer and MSc Computer Science with AI student</p>
+        </header>
 
-        <h2>About Me</h2>
-        <p><b>Name:</b> Nnola Oyeka</p>
-        <p><b>Age:</b> 26</p>
-        <p><b>Occupation:</b> Structural Engineer</p>
-        <p>Here is an architectural render of a school I worked on, providing structural engineering services</p>
-        <img src="img_school.jpg" alt="School Render" width="500" height="300">
-        <p><b>Hobbies:</b> Travelling, Reading, Football</p>
+        <main>
+            <section class="card about">
+                <h2>About Me</h2>
+                <div class="details">
+                    <p><b>Name:</b> Nnola Oyeka</p>
+                    <p><b>Age:</b> 26</p>
+                    <p><b>Occupation:</b> Structural Engineer</p>
+                </div>
+                <p><b>Hobbies:</b></p>
+                <ul class="tags">
+                    <li>Travelling</li>
+                    <li>Reading</li>
+                    <li>Football</li>
+                </ul>
+            </section>
 
-        <h2>Where to Find Me</h2>
-        <p><b>Linkedin</b></p><a href="https://www.linkedin.com/in/nnola-oyeka">Nnola Oyeka</a>
+            <section class="card project">
+                <h2>My Work</h2>
+                <p>Here is an architectural render of a school I worked on, providing structural engineering services.</p>
+                <figure>
+                    <img src="img_school.jpg" alt="Architectural render of a school" width="500" height="300">
+                    <figcaption>Architectural render of school building</figcaption>
+                </figure>
+            </section>
+
+            <section class="card contact">
+                <h2>Where to Find Me</h2>
+                <p>Connect with me on LinkedIn:</p>
+                <a class="button" href="https://www.linkedin.com/in/nnola-oyeka" target="_blank" rel="noopener">Nnola Oyeka on LinkedIn</a>
+            </section>
+
+        </main>
+        
+        <footer>
+        &copy; 2026 Nnola Oyeka
+        </footer>
 
     </body>
 
