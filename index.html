@@ -3,6 +3,11 @@
         <title>Nnola Oyeka's WebPage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+        /* Theme colour picker */
+        <div class-"theme-picker">
+            <label for="themeColour">Pick a theme colour:</label>
+            <input type="color" id="themeColour" value="#2a6f97">
+        </div>
 
         <style>
             :root {
@@ -17,6 +22,21 @@
             
             * {
                 box-sizing: border-box;
+            }
+
+            .theme-picker {
+                margin-top:16px;
+            }
+
+            .theme-picker label {
+                margin-right: 8px;
+            }
+
+            .theme-picker input{
+                width:50px;
+                height:32px;
+                border: none;
+                cursor: pointer;
             }
 
             body {
@@ -111,6 +131,17 @@
                 margin-top: 6px;
             }
 
+            .hidden {
+                display: none;
+            }
+
+            #detailsBtn {
+                margin-top: 12px;
+                border: none;
+                cursor:pointer;
+                font-size: 1rem;
+            }
+
             /*Social links styles */
             .button {
                 display: inline-block;
@@ -190,6 +221,11 @@
                     <img src="img_school.jpg" alt="Architectural render of a school" width="500" height="300">
                     <figcaption>Architectural render of school building</figcaption>
                 </figure>
+
+                <button id="detailsBtn" class="button">Show project details</button>
+                <div id="projectDetails" class="hidden">
+                    <p>School comprised of a 3-storey steel frame with composite metal deck floors and a flat green roof. Floors designed for classroom loading and roof designed to support the green roof</p>
+                </div>
             </section>
 
             <section class="card contact">
@@ -203,6 +239,32 @@
         <footer>
         &copy; 2026 Nnola Oyeka
         </footer>
+
+        <script>
+            // Theme colour picker functionality
+            const colorPicker = document.getElementById("themeColour");
+
+            colorPicker.addEventListener("input", function() {
+                // update primary color on whole page
+                document.documentElement.style.setProperty('--primary-color', colorPicker.value);
+            })
+            
+            // Toggle project details visibility
+            const detailsBtn = document.getElementById("detailsBtn");
+            const projectDetails = document.getElementById("projectDetails");
+
+            detailsBtn.addEventListener("click", function() {
+                projectDetails.classList.toggle("hidden");
+
+                // Update button text based on visibility
+                if (projectDetails.classList.contains("hidden")) {
+                    detailsBtn.textContent = "Show project details";
+                } else {
+                    detailsBtn.textContent = "Hide project details";
+                }
+            });
+
+        </script>
 
     </body>
 
