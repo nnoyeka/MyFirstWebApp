@@ -222,7 +222,7 @@
                     <figcaption>Architectural render of school building</figcaption>
                 </figure>
 
-                <button id="detailsBtn" class="button">Show project details</button>
+                <button id="detailsBtn" class="button" aria-expended="false" aria-controls="projectDetails">Show project details</button>
                 <div id="projectDetails" class="hidden">
                     <p>School comprised of a 3-storey steel frame with composite metal deck floors and a flat green roof. Floors designed for classroom loading and roof designed to support the green roof</p>
                 </div>
@@ -259,8 +259,10 @@
                 // Update button text based on visibility
                 if (projectDetails.classList.contains("hidden")) {
                     detailsBtn.textContent = "Show project details";
+                    detailsBtn.setAttribute("aria-expanded", "false");
                 } else {
                     detailsBtn.textContent = "Hide project details";
+                    detailsBtn.setAttribute("aria-expanded", "true");
                 }
             });
 
